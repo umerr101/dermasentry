@@ -1,0 +1,30 @@
+# Deploy the verified runtime image; no dataset, upload storage, database or disk.
+services:
+  - type: web
+    name: dermasentry-api
+    runtime: docker
+    plan: free
+    region: singapore
+    repo: https://github.com/umerr101/dermasentry
+    branch: deploy/render-free
+    autoDeployTrigger: "off"
+    dockerfilePath: ./backend/Dockerfile.render-git
+    dockerContext: ./backend/service
+    healthCheckPath: /health
+    envVars:
+      - key: PORT
+        value: "10000"
+      - key: ORT_THREADS
+        value: "1"
+      - key: MAX_CONCURRENT_INFERENCE
+        value: "1"
+      - key: MAX_IMAGE_PIXELS
+        value: "4000000"
+      - key: OPENBLAS_NUM_THREADS
+        value: "1"
+      - key: OMP_NUM_THREADS
+        value: "1"
+      - key: MKL_NUM_THREADS
+        value: "1"
+      - key: OPENCV_FOR_THREADS_NUM
+        value: "1"

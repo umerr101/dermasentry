@@ -1,0 +1,5 @@
+# Render's connector can create Git-backed Docker services, so this tiny build
+# reuses the exact published runtime and adds only the startup readiness gate.
+FROM docker.io/umerr101/dermasentry-api@sha256:3858e7a7f094f1546955a8a9cbaa4e806ed699157bb7e2c37117f594052127c9
+COPY ready_start.py /srv/backend/service/ready_start.py
+CMD ["sh", "-c", "exec uvicorn service.ready_start:create_ready_app --factory --host 0.0.0.0 --port \"${PORT:-10000}\" --no-access-log"]
