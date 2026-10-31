@@ -1,0 +1,2 @@
+model,image_size,best_epoch,val_accuracy,val_macro_f1,test_accuracy,test_macro_f1
+efficientnet_v2_s,384,15,0.8805782526712759,0.8789252436164836,0.8600405679513184,0.8262406921849269

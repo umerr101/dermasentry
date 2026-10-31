@@ -1,0 +1,11 @@
+class,efficientnet_v2_s
+ant,89.47
+bed_bug,81.76
+bee_wasp,98.1
+general_insect_bite,90.32
+mosquito,94.89
+no_bite,85.91
+other_insect_bite,89.57
+spider,73.65
+tick,90.0
+OVERALL accuracy,88.06
